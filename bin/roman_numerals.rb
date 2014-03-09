@@ -5,6 +5,16 @@ def roman_numerals number
   roman = ""
   ones = number % 10
   tens = number % 100 / 10
+  hundreds = number % 1000 / 100
+
+  if hundreds == 9
+    roman = roman + "CM"
+  elsif hundreds == 4
+    roman = roman + "XL"
+  else
+    roman = roman + "D" * (number % 1000 / 500)
+    roman = roman + "C" * (number % 500 / 100)
+  end
 
   if tens == 9
     roman = roman + "XC"
