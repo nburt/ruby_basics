@@ -1,16 +1,18 @@
-puts "Convert a number to roman numeral:"
+puts "Convert a number to roman numerals:"
 number = gets.chomp.to_i
 
 def roman_numerals number
-  roman = ""
+
   ones = number % 10
   tens = number % 100 / 10
   hundreds = number % 1000 / 100
+  thousands = number / 1000
+  roman = "M" * thousands
 
   if hundreds == 9
     roman = roman + "CM"
   elsif hundreds == 4
-    roman = roman + "XL"
+    roman = roman + "CD"
   else
     roman = roman + "D" * (number % 1000 / 500)
     roman = roman + "C" * (number % 500 / 100)
@@ -33,6 +35,8 @@ def roman_numerals number
     roman = roman + "V" * (number % 10 / 5)
     roman = roman + "I" * (number % 5 / 1)
   end
+
+  roman
 end
 
 puts roman_numerals(number)
