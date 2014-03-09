@@ -1,4 +1,13 @@
-bottles = 99
+puts "How many bottles?"
+bottles = gets.chomp
+
+if bottles == ""
+  puts "I need to know how many bottles to sing!"
+elsif bottles.to_i.to_s != bottles
+  puts "I need a number."
+else
+  bottles = bottles.to_i
+end
 
 while bottles >= 0
   if bottles == 2
